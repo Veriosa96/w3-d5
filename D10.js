@@ -143,7 +143,20 @@ console.log (isThisAnEmail("saveriocaracappa@gmail.com"))
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
-
+console.log("-----Esercizio 7-----")
+const whatDayIsIt = () => {
+const alldayoftheweek = [
+  "Domenica",
+  "Lunedì",
+  "Martedì",
+  "Mercoledì",
+  "Giovedì",
+  "Venerdì",
+  "Sabato",
+]
+return alldayoftheweek [new Date().getDay()]  //il return viene inserito dentro le parentesi quandre perché dobbiamo far tornare un dato che fa parte di un array. (appunti miei)
+}
+console.log ("Che giorno è oggi?",whatDayIsIt())
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
@@ -172,11 +185,45 @@ console.log (rollTheDices(4))
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
+console.log("-----Esercizio 9-----")
+
+const howManyDays = (data) => {
+  const dataodierna = new Date()
+  const datadainserire = new Date(data)
+  const giornitrascorsi = dataodierna.getTime() - datadainserire.getTime()
+  return Math.floor(giornitrascorsi/(1000*3600*24))
+}
+console.log("Sono trascorsi",howManyDays("2022-2-7"), "giorni")
+
+/*p.s. Appunti personali.
+inserita la constante per la data odierna e la constante per la data da inserire(dove andiamo a richiamare il parametro isnerito all'interno della funzione) creiamo una nuova constante
+chiamata giorni trascorsi e dentro facciamo la differenza tra le prime due constanti dataodierna - datadainserire muniti di metodo getTime(). Dopodiché torniamo il risultato tramite il 
+metodo math.floor dove troviamo la la funzione (howManyDays) diviso 1000*3600*24 che sarebbero il numero di millisecondi in un giorno. Fatta wuest'ultima operazione andiamo a stampare
+il console.log dove inseriamo la nostra funzione seguita dalle parentesi rotonde con all'interno una data di nostro piacimento, il risultato sarà il numero di giorni trascorsi dalla data
+odierna alla data inserita nel console.log. */
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
-
+console.log("-----Esercizio 10-----")
+const isTodayMyBirthday = () => {
+const oggi = new Date()
+const giornocompleanno = 7
+const mesecompleanno = 2
+if (oggi.getDate() === giornocompleanno && oggi.getMonth() +1 === mesecompleanno ){
+  return true
+}else {
+  return false
+}
+}
+console.log("E' il mio compleanno oggi?", isTodayMyBirthday(2022-7-2022))
+/*P.S. Appunti personali.
+Una volta dichiarata la funzione andiamo ad inserire le costanti che ci permettono di capire se oggi è il giorno del mio compleanno che sono:
+-oggi che è la costante che prende il giorno odierno
+-giornocompleanno ed inseriamo il giorno del nostro compleanno
+-mesecompleanno ed inseriamo il mese del nostro compleanno
+Dopodiché utiliziamo il ciclo "if" e dichiariamo, se il giorno di oggi è uguale al giorno del nostro compleanno ed il mese attuale è uguale al mese del nostro compleanno
+allora la funzione in console.log uscirà vera, altrimenti sarà falsa   */
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
